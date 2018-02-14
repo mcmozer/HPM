@@ -1,0 +1,4 @@
+generate(12,1,2,FILENAME,10000, 100)
+
+negative sequences have no A-B durations between 9 and 11
+positive sequences have at least one A-B duration of 10
