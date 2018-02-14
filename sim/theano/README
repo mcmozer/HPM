@@ -1,0 +1,62 @@
+(not saved):
+   incorrectly computed c_ki posterior with uncertainty in x_k 
+   (used Rob's bernoulli sampling rule)
+
+hpm_pre0416:
+   outputs intensity
+   unbounded output, and unbounded feedback.
+   contrast with LSTM
+
+hpm_0416A:
+    outputs probability of that event occurs at or beyond \delta_that
+    THIS IS THE VERSION THAT WORKS BEST
+
+hpm_0416B:
+    like 0416A except treats observation as having occurred some time in
+    \delta_t interval 
+    changes likelihood of event given time scale 
+
+hpm_0417A:
+    see hpm.pptx
+    this is the squashed instantaneous prediction based on density h(\delta t)
+
+hpm_1104:
+    output_i is h_i/(\sum_j h_j)
+
+hpm_1105:
+    output_i is h_i / (const + h_i)
+    where const is a learned non-negative parameter
+    THIS IS BEATING EVEN 0416A
+
+hpm_1110:
+    output is as for hpm_1105
+    using intensity expectation rather than intensity
+    output is based on marginal intensity expectation
+
+hpm_1113:
+    same as 1110 except that renormalization h/(const+h) computation
+    is conditioned on time constant, and output is expectation over
+    time constants
+    Doesn't seem to be doing as well as 1110
+
+What about a version of 1110 in which only recurrent output is normalized;
+output being fed to softmax layer is not
+
+hpm_0102:
+hpm_030517:
+    versions with symmetric (+/-) intensities
+    030517 learns as fast as LSTM
+
+hpm_031117:
+    mike's original idea of a mixture of HPs at different time scales
+
+dru:
+    patrice's model
+
+SPM:
+    rob's idea of a state-dependent forgetting rate, or 'survival process memory'
+
+
+
+GPU:
+rob says to run nvidia-smi when simulation is going
